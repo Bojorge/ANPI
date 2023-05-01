@@ -1,7 +1,7 @@
 import numpy as np
 import sympy as sp
 
-def Newton_Raphson_TURBO(max_iterations: int, tolerance: float, x_0: (float, float), f: []) -> None:
+def Newton_Raphson_TURBO(max_iterations: int, tolerance: float, x_0, f) -> None:
     '''General definitions'''
     max_iter = max_iterations
     tol = tolerance
