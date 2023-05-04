@@ -1,10 +1,6 @@
-'''
-Tarea #2 - ANPI
-Alvaro Vargas M - 2018085151
-'''
-
 import numpy as np
 import sympy as sp
+from matplotlib import pyplot as plt
 
 def Newton_Raphson(max_iterations: int, tolerance: float, x_0: (float, float), f: []) -> None:
     '''
@@ -19,6 +15,7 @@ def Newton_Raphson(max_iterations: int, tolerance: float, x_0: (float, float), f
     '''General definitions'''
     max_iter = max_iterations
     tol = tolerance
+    errors = []
     x, y = sp.symbols('x y') # Cambiar
 
     '''Initial value matrix'''
@@ -48,14 +45,22 @@ def Newton_Raphson(max_iterations: int, tolerance: float, x_0: (float, float), f
 
         # Error
         error = np.linalg.norm(eval_f(x_current[0,0],x_current[1,0]))
+        errors.append(error)
 
         # Check if current solution is good enough
         if abs(error) < tol:
             print('X_k aproximado:', x_current)
             print('Iteraciones:', i)
             print('Error:', error)
+
+            #Iter vs Error
+            plt.title("Iteraciones vs Error")
+            plt.xlabel("Iteraciones ")
+            plt.ylabel("Error ")
+            plt.plot(range(i+1), errors, 'b.')
+            plt.ticklabel_format(style='sci', axis='y', scilimits=(0,0))
+            plt.show()
             break
         x_ini = x_current
-
-
+        
 Newton_Raphson(1000, 10e-5, (2.3, 2.3), ['exp(x**2) - exp(sqrt(2)*x)', 'x - y'])
