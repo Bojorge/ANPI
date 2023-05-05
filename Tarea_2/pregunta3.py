@@ -62,6 +62,17 @@ F_g = [f_g1, f_g2, f_g3, f_g4]
 sol_g1 = (-(1/sqrt(3)), -(1/sqrt(3)), -(1/sqrt(3)), (1/(2*sqrt(3))))
 sol_g2 = ((1/sqrt(3)), (1/sqrt(3)), (1/sqrt(3)), -(1/(2*sqrt(3))))
 
+"""
+Newton_Raphson(1000, 10e-5, sol_a1, F_a)
+Newton_Raphson(1000, 10e-5, sol_a2, F_a)
+
+Newton_Raphson(1000, 10e-5, sol_b, F_b)
 
 Newton_Raphson(1000, 10e-5, sol_c, F_c)
-#Newton_Raphson(1000, 10e-5, (2.3, 2.3), ['exp(x1**2) - exp(sqrt(2)*x1)', 'x1 - x2'])
+
+Newton_Raphson(1000, 10e-5, sol_d1, F_d)
+Newton_Raphson(1000, 10e-5, sol_d2, F_d)
+
+Newton_Raphson(1000, 10e-5, sol_g1, F_g)
+Newton_Raphson(1000, 10e-5, sol_g2, F_g)
+"""
