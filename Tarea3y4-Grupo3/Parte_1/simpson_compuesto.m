@@ -1,14 +1,13 @@
-
-function test()
-  clc; clear;
-  f='log(asin(x))/log(x)';
-  a=0.1; b=0.8;
-  n=1000;
-  I2=simpson_compuesto(f,a,b,n)
-end
-
 function I=simpson_compuesto(f,a,b,n);
-  %Escribir la ayuda de la funcion
+  % Aproximación numérica de la integral de una función en un intervalo mediante el metodo de Simpson compuesto, el cual divide en subitervalos y utiliza recursivamente para aplicar el metodo de Simpson a cada intervalo.
+  % Sintaxys : simpson_compuesto(f,a,b,n)
+  % Inputs:
+  %    f = funcion a evaluar,
+  %    a, b = intervalo [a, b],
+  %    n = numero de puntos en los que se divide el intervalo [a, b]
+  % Outputs:
+  %    I =  I = Aproximacion numerica de la integral
+
   h=(b-a)/(n-1);
   xSoporte=a:h:b;
   I=0;
@@ -18,7 +17,13 @@ function I=simpson_compuesto(f,a,b,n);
 end
 
 function I=simpson(f,a,b)
-  %%%% Comentar la funcion correctamente
+  % Aproximación numérica de la integral de una función en un intervalo mediante el metodo de Simpson.
+  % Sintaxys : simpson(f,a,b)
+  % Inputs:
+  %    f = funcion a evaluar,
+  %    a, b = intervalo [a, b]
+  % Outputs:
+  %    I = Aproximacion numerica de la integral
   fnum=str2func(['@(x)' f]);
   I=(b-a)/6*(fnum(a)+4*fnum((a+b)/2)+fnum(b));
 end

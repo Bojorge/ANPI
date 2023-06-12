@@ -1,14 +1,13 @@
-
-
-function test()
-  f = @(x) exp(x.^2);
-  a = 0.2;
-  b = 1.2;
-  n = 2;
-
-  Cuadratura_Gaussiana_Compuesta(f, a, b, n);
-
 function Cuadratura_Gaussiana_Compuesta(f, a, b, n)
+  % Aproximación numérica de la integral de una función en un intervalo mediante la cuadratura gaussiana compuesta, la cual divide [a, b] en sub intervalos y aplica la cuadratura de Gauss a cada una..
+  % Sintaxys : Cuadratura_Gaussiana_Compuesta(f, a, b, n)
+  % Inputs:
+  %    f = funcion a evaluar
+  %    a, b = intervalo [a, b],
+  %    n = numero de puntos en los que se divide el intervalo [a, b]
+  % Outputs:
+  %    I =  I = Aproximacion numerica de (1)
+
   clc;
 
   if n > 10 || n < 2

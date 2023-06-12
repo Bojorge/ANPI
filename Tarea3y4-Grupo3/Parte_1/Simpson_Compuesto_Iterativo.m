@@ -1,12 +1,12 @@
-function test()
-  clc; clear;
-  f='log(asin(x))/log(x)';
-  a=0.1; b=0.8;
-  n=1000;
-  I2=trapecio_compuesto(f,a,b,n)
-
 function I=simpson_compuesto_iterativo(f,a,b,n)
-   %Escribir la ayuda de la funcion
+  % Aproximación numérica de la integral de una función en un intervalo mediante el metodo de Simpson compuesto iterativo.
+  % Sintaxys : simpson_compuesto_iterativo(f,a,b,n)
+  % Inputs:
+  %    a, b = intervalo [a, b],
+  %    n = numero de puntos en los que se divide el intervalo [a, b]
+  % Outputs:
+  %    I =  I = Aproximacion numerica de la integral
+
   h=(b-a)/(n-1);
   xSoporte=a:h:b;
   I=0;
