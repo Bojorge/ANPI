@@ -17,7 +17,7 @@ function I = gaussiana_compuesta_iterativa(f, a, b, M, tol, iterMax)
 
   while abs(I - I_prev) > tol && iter < iterMax
     I_prev = I; % Guardar el valor anterior
-    I = gaussiana_compuesta(f, a, b, n); % Calcular nueva aproximación
+    I = gaussiana_compuesta(f, a, b, M); % Calcular nueva aproximación
     iter = iter + 1; % Incrementar contador de iteraciones
   end
 
