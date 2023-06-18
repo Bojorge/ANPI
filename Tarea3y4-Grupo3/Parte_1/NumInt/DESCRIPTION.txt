@@ -1,10 +1,10 @@
-Name: my_package
+Name: numint
 Version: 0.0.1
-Date: 2015-09-21
-Title: My Very Own Package
-Author: Old Me
-Maintainer: Current Me
+Date: 2023-06-18
+Title: NumInt
+Author: Grupo 3
+Maintainer: Grupo 3
 License: GPLv3+
-Description: A package for my octave
+Description: Tarea 3 y 4, parte 1
 functions.
 Categories: SIM data

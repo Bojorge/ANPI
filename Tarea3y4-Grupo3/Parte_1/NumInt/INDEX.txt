@@ -1,9 +1,0 @@
-my_package >> My Very Own Package
-Structural Illumination Microscopy
-reconstruct_sim
-get_otf_order
-estimate_psf
-Performance
-timeit
-Image IO
-write_hyper_tiff
