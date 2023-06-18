@@ -1,0 +1,10 @@
+Name: my_package
+Version: 0.0.1
+Date: 2015-09-21
+Title: My Very Own Package
+Author: Old Me
+Maintainer: Current Me
+License: GPLv3+
+Description: A package for my octave
+functions.
+Categories: SIM data
