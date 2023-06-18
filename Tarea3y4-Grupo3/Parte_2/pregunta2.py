@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import time
 
 def edo2(p, q, f, h, a, b, y0, yn):
     """
@@ -28,7 +29,6 @@ def edo2(p, q, f, h, a, b, y0, yn):
         Vector con los puntos x donde se calcula la solución aproximada.
     y : array
         Vector con los valores de la solución aproximada y en los puntos x.
-
     """
 
     n = int((b - a) / h)  # Número de puntos
@@ -57,41 +57,72 @@ def edo2(p, q, f, h, a, b, y0, yn):
 
     return x, y
 
-
-    for i in range(1, n):
-        b[i] = h**2 * f(x[i])
-
-    # Resolver el sistema de ecuaciones lineales
-    y = np.linalg.solve(A, b)
-
-    return x, y
 def p(x):
     return -1 / x
 
 def q(x):
-    return (1 / (4 * x**2)) - 1
+    return (1 / (x**2)) - 1
 
 def f(x):
     return 0
 
-# Definir los parámetros de la ecuación diferencial
-h = 0.1
-a = 1
-b = 6
-y0 = 1
-yn = 0
+def solucion_exacta(x):
+    return np.sin(6 - x) / (np.sin(5) * np.sqrt(x))
 
-# Resolver la ecuación diferencial utilizando la función edo2
-x, y = edo2(p, q, f, h, a, b, y0, yn)
+def script():
+    # Parámetros de la ecuación diferencial
+    h = 0.1
+    a = 1
+    b = 6
+    y0 = 1
+    yn = 0
 
-# Imprimir los resultados
-for i in range(len(x)):
-    print("x = {:.2f}, y = {:.6f}".format(x[i], y[i]))
+    # Resolver la ecuación diferencial utilizando la función edo2
+    x, y = edo2(p, q, f, h, a, b, y0, yn)
 
-# Graficar la solución
-plt.plot(x, y, marker='o')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.title('Solución de la ecuación diferencial')
-plt.grid(True)
-plt.show()
+    # Imprimir los resultados
+    for i in range(len(x)):
+        print("x = {:.2f}, y = {:.6f}".format(x[i], y[i]))
+
+    # Graficar la solución
+    plt.plot(x, y, marker='o', label='Aproximación')
+    plt.plot(x, solucion_exacta(x), label='Solución exacta')
+    plt.xlabel('x')
+    plt.ylabel('y')
+    plt.title('Solución de la ecuación diferencial')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+
+def animacion():
+    # Parámetros de la ecuación diferencial
+    a = 1
+    b = 6
+    y0 = 1
+    yn = 0
+
+    hs = np.arange(1, 11)
+    
+    for h in hs:
+        # Resolver la ecuación diferencial utilizando la función edo2
+        x, y = edo2(p, q, f, h, a, b, y0, yn)
+
+        # Graficar la solución
+        plt.plot(x, y, marker='o', label='Aproximación (h={})'.format(h))
+        plt.xlabel('x')
+        plt.ylabel('y')
+        plt.title('Aproximación de la ecuación diferencial (h={})'.format(h))
+        plt.legend()
+        plt.grid(True)
+        plt.show()
+        time.sleep(2)
+
+# Llamar a la función script para resolver la ecuación diferencial y mostrar la solución
+script()
+
+# Esperar un segundo antes de comenzar la animación
+time.sleep(1)
+
+# Llamar a la función animacion para realizar la animación de las aproximaciones
+animacion()
+
