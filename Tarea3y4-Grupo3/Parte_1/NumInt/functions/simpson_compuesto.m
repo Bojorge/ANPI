@@ -16,15 +16,15 @@ function I=simpson_compuesto(f,a,b,n);
   end
 end
 
-function I=simpson(f,a,b)
-  % Aproximación numérica de la integral de una función en un intervalo mediante el metodo de Simpson.
-  % Sintaxys : simpson(f,a,b)
+function I = simpson(f, a, b)
+  % Aproximación numérica de la integral de una función en un intervalo mediante el método de Simpson.
+  % Sintaxis: I = simpson(f, a, b)
   % Inputs:
-  %    f = funcion a evaluar,
-  %    a, b = intervalo [a, b]
-  % Outputs:
-  %    I = Aproximacion numerica de la integral
-  fnum=str2func(['@(x)' f]);
-  I=(b-a)/6*(fnum(a)+4*fnum((a+b)/2)+fnum(b));
+  %   f: función a evaluar
+  %   a, b: límites de integración [a, b]
+  % Output:
+  %   I: aproximación numérica de la integral
+  I = (b - a) / 6 * (f(a) + 4 * f((a + b) / 2) + f(b));
 end
+
 

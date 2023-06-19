@@ -4,8 +4,12 @@ function ejecutable()
   a = 0.1;  % Límite inferior del intervalo
   b = 0.9;  % Límite superior del intervalo
   N = 20;   % Número de puntos de integración
+  n = 8;    % Número de filas en la tabla de Romberg
   tol = 1e-6;  % Tolerancia para la convergencia
   iterMax = 10000;  % Número máximo de iteraciones
+
+
+
 
   % Calculamos el valor exacto de la integral utilizando cálculo simbólico
   Integral_Exacta = integral( f, a, b);
@@ -39,6 +43,11 @@ function ejecutable()
   Test_gaussiana_compuesta_iterativa = gaussiana_compuesta_iterativa(f, a, b, N, tol, iterMax);
   disp("Aproximación numérica de la integral por gaussiana_compuesta_iterativa:");
   disp(double(Test_gaussiana_compuesta_iterativa));
+
+  % El método de Romberg
+  Test_romberg = romberg(f, a, b, n);  % Llamada a la función romberg
+  disp("Aproximación numérica de la integral por El método de Romberg:");
+  disp(double(Test_romberg));
 
   disp("Valor exacto de la integral:");
   disp(double(Integral_Exacta));
